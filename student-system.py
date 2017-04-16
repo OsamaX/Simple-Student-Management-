@@ -1,11 +1,11 @@
 import os
 
-students = ["hamza", "osama"]
+students = []
 
 message = print("Press 1 to add a new Student, Press 2 to get Students List, Press 3 to search a Student or Press 4 to exit.\n")
 
 while ("true"):
-    num = int(input("Enter Number between 1 to 3:\t"))
+    num = int(input("Enter Number between 1 to 4:\t"))
 
     if os.name == "nt":
         os.system('cls')
@@ -18,13 +18,18 @@ while ("true"):
             add_stud = input("Enter Student Name:\t")
             if add_stud.lower() == "quit":
                 break
+
             students.append(add_stud.lower())
+
     if num == 2:
 
         print("\n")
-        for stud in students:
-            print(stud)
-        print("\n")
+        if students.__len__() != 0:
+            for stud in students:
+                print(stud)
+            print("\n")
+        else:
+            print("List is empty")
 
     if num == 3:
         stud_search = input("Enter Student Name to Search:\t")
